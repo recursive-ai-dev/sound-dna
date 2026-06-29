@@ -1,0 +1,30 @@
+{
+  "variable": "Glide Slur",
+  "prefix": "GLI",
+  "subvars": {
+    "glide_time": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Glide/portamento duration in ms (0\u201310000, pad 5): 0 = none/instant, 10000 = maximum allowed glide time. Zero-padded."
+    },
+    "glide_shape": {
+      "class": "L-E-S",
+      "description": "Glide curve/shape: L = linear, E = exponential, S = stepwise (chromatic slur). Single uppercase letter, order L, E, S."
+    },
+    "pitch_span": {
+      "min": 0,
+      "max": 2400,
+      "pad": 4,
+      "description": "Pitch span in cents (0\u20132400, pad 4): 0 = none, 2400 = two octaves. Zero-padded."
+    },
+    "slur_intensity": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Slur intensity (0\u20131000, pad 4): 0 = sharp, discrete steps; 1000 = maximally blended/legato. Zero-padded."
+    }
+  },
+  "structure": "GLI00500E12000980",
+  "description": "GLI (prefix), glide_time (5 digits), glide_shape (1 letter), pitch_span (4 digits), slur_intensity (4 digits); all zero-padded, no subvar prefixes. Example: GLI00500E12000980 = 00500 ms glide, E (exponential), 1200 cents span, 0980 intensity."
+}

@@ -1,0 +1,39 @@
+{
+  "variable": "Perceived Pitch",
+  "prefix": "PER",
+  "subvars": {
+    "fundamental": {
+      "min": 20,
+      "max": 20000,
+      "pad": 5,
+      "description": "Fundamental frequency in Hz, 00020\u201320000. Always five digits, zero-padded (e.g. 00440 = 440 Hz). The main perceived pitch in the analysis window."
+    },
+    "octave_spread": {
+      "min": 0,
+      "max": 20,
+      "pad": 2,
+      "description": "Octave spread above the fundamental, 0\u201320. Two digits, zero-padded (e.g. 03 = three octaves). Indicates harmonic width."
+    },
+    "microtuning": {
+      "min": 0,
+      "max": 100,
+      "pad": 3,
+      "sign": "P/N",
+      "description": "Microtuning in cents, 0\u2013100, three digits, zero-padded, sign-encoded: P = flat (negative), N = sharp (positive). E.g. N012 = -12 cents, P004 = +4 cents. 'N' always comes first in the order."
+    },
+    "harmonic_centroid": {
+      "min": 0,
+      "max": 20000,
+      "pad": 5,
+      "description": "Harmonic centroid in Hz (0\u201320000), five digits, zero-padded. Indicates average brightness (higher = brighter sound."
+    },
+    "confidence": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Pitch confidence, 0\u20131000, four digits, zero-padded. 0000 = uncertain, 1000 = fully confident."
+    }
+  },
+  "structure": "PER0044003N012008500950",
+  "description": "Prefix (PER), fundamental Hz (5 digits), octave spread (2 digits), microtuning (sign + 3 digits), harmonic centroid (5 digits), confidence (4 digits). Example: PER0044003N012008500950 = 440Hz, 3 octaves, -12 cents, centroid 850Hz, confidence 95.0%. All fields zero-padded and strictly ordered, no spaces or subvar prefixes."
+}

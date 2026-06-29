@@ -1,0 +1,43 @@
+{
+  "variable": "Emotion",
+  "prefix": "EMO",
+  "subvars": {
+    "valence": {
+      "min": 0,
+      "max": 800,
+      "pad": 3,
+      "class_order": "Z-A",
+      "description": "Valence (positivity/negativity axis), 0\u2013800 with Z\u2013A order (Z = most negative, A = most positive). Serialized as [class][value] (e.g. Z800)."
+    },
+    "arousal": {
+      "min": 0,
+      "max": 800,
+      "pad": 3,
+      "class_order": "Z-A",
+      "description": "Arousal (energy axis), 0\u2013800 with Z\u2013A order (Z = lowest energy, A = highest). Serialized as [class][value]."
+    },
+    "dominance": {
+      "min": 0,
+      "max": 800,
+      "pad": 3,
+      "class_order": "Z-A",
+      "description": "Dominance (assertiveness axis), 0\u2013800 with Z\u2013A order (Z = most passive, A = most dominant). Serialized as [class][value]."
+    },
+    "complexity": {
+      "min": 0,
+      "max": 800,
+      "pad": 3,
+      "class_order": "Z-A",
+      "description": "Complexity (purity/mix), 0\u2013800 with Z\u2013A order (Z = pure, A = max blend). Serialized as [class][value]."
+    },
+    "stability": {
+      "min": 0,
+      "max": 800,
+      "pad": 3,
+      "class_order": "Z-A",
+      "description": "Stability (variance), 0\u2013800 with Z\u2013A order (Z = unstable, A = stable). Serialized as [class][value]."
+    }
+  },
+  "structure": "EMOZ800Z750Z675Z500Z600",
+  "description": "EMO (prefix), then for each field: class letter + 3-digit value. Order: valence, arousal, dominance, complexity, stability. Example: EMOZ800Z750Z675Z500Z600."
+}

@@ -1,0 +1,26 @@
+{
+  "variable": "Phase Spatial",
+  "prefix": "PHA",
+  "subvars": {
+    "coherence": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Phase coherence (0\u20131000, pad 4): 0 = random, 1000 = perfect alignment. Zero-padded."
+    },
+    "width": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Stereo width (0\u20131000, pad 4): 0 = mono, 1000 = max width. Zero-padded."
+    },
+    "correlation": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Phase correlation (0\u20131000, pad 4): 0 = fully out of phase, 1000 = fully in phase. Zero-padded."
+    }
+  },
+  "structure": "PHA089507900865",
+  "description": "PHA (prefix), coherence (4 digits), width (4 digits), correlation (4 digits); all zero-padded, no subvar prefixes. Example: PHA089507900865 = coherence 0895, width 0790, correlation 0865."
+}

@@ -1,0 +1,26 @@
+{
+  "variable": "Harmonicity",
+  "prefix": "HAR",
+  "subvars": {
+    "harmonic_ratio": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Harmonic ratio index (0\u201310000, pad 5): 0 = fully inharmonic, 10000 = perfectly harmonic. Zero-padded."
+    },
+    "partials_count": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Number of partials/overtones (0\u20131000, pad 4): 0 = none, 1000 = dense. Zero-padded."
+    },
+    "odd_even": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Odd/Even partials balance (0\u20131000, pad 4): 0 = all even, 1000 = all odd, 500 = even mix. Zero-padded."
+    }
+  },
+  "structure": "HAR0950003610150",
+  "description": "HAR (prefix), harmonic ratio (5 digits), partials count (4 digits), odd/even (4 digits); all zero-padded, no subvar prefixes. Example: HAR0950003610150 = ratio 9500, 0361 partials, 0150 odd/even."
+}

@@ -1,0 +1,39 @@
+{
+  "variable": "Noise Texture",
+  "prefix": "NOI",
+  "subvars": {
+    "band": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Band index, 0\u201310000, representing spectral band or patch slot. Five digits, zero-padded (e.g. 00023 = band 23, 09999 = band 9999). Used for precise mapping to noise bands in synthesis or analysis."
+    },
+    "grain": {
+      "class_order": "ZZ\u2013AA",
+      "description": "Grain code, two uppercase letters. First letter = period class (ZZ = coarsest, AA = finest), second = fractal color. Always two uppercase letters, never padded. Example: ZZ = most granular, AA = finest."
+    },
+    "noise_amount": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Noise energy/level, 0\u20131000, four digits, zero-padded. 0000 = silent, 1000 = maximum. Useful for energy, envelope, or masking analysis."
+    },
+    "modulation": {
+      "class_order": "Z\u2013A",
+      "description": "Modulation type, one uppercase letter (Z = slowest/simple, A = fastest/complex). No padding."
+    },
+    "color_code": {
+      "class_order": "Z\u2013A",
+      "description": "Noise spectral color, one uppercase letter (Z = violet/high, A = white/flat). No padding."
+    },
+    "spectral_tilt": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "sign": "N/P",
+      "description": "Spectral tilt, sign + four digits. N = more lows, P = more highs. 0\u20131000, zero-padded. N always comes before P in class order. Example: N0250 = more lows, P0100 = more highs."
+    }
+  },
+  "structure": "NOI00023ZZ0450ZAN0250",
+  "description": "Prefix (NOI), band (5 digits), grain (2 uppercase letters, ZZ\u2013AA order), noise amount (4 digits), modulation (1 letter, Z\u2013A), color code (1 letter, Z\u2013A), spectral tilt (sign + 4 digits, N/P). Example: NOI00023ZZ0450ZAN0250 = band 23, grain ZZ, amount 450, modulation Z, color A, tilt N0250 (lows dominant). No spaces, no subvar prefixes, all fields strictly zero-padded or fixed-width as specified."
+}

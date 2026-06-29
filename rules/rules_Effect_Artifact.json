@@ -1,0 +1,36 @@
+{
+  "variable": "Effect Artifact",
+  "prefix": "FXA",
+  "subvars": {
+    "distortion": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Distortion/saturation amount (0\u20131000, pad 4): 0 = perfectly clean, 1000 = max distortion/clip. Zero-padded."
+    },
+    "aliasing": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Aliasing index (0\u20131000, pad 4): 0 = none, 1000 = extremely aliased. Zero-padded."
+    },
+    "reverb": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Reverb/ambience amount (0\u20131000, pad 4): 0 = dry, 1000 = maximum reverb tail. Zero-padded."
+    },
+    "mod_type": {
+      "class": "T-R-F-C",
+      "description": "Modulation effect type: T = tremolo, R = ring mod, F = flanger, C = chorus. One uppercase letter, order T, R, F, C."
+    },
+    "mod_depth": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Modulation effect depth (0\u20131000, pad 4): 0 = off, 1000 = maximum. Zero-padded."
+    }
+  },
+  "structure": "FXA023405000972F0650",
+  "description": "FXA (prefix), distortion (4 digits), aliasing (4 digits), reverb (4 digits), mod_type (1 letter), mod_depth (4 digits); zero-padded, no subvar prefixes. Example: FXA023405000972F0650 = distortion 0234, aliasing 0500, reverb 0972, flanger (F), depth 0650."
+}

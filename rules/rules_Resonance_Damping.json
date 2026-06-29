@@ -1,0 +1,26 @@
+{
+  "variable": "Resonance Damping",
+  "prefix": "RES",
+  "subvars": {
+    "mode_count": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Number of measurable resonance modes (0\u20131000, pad 4): 0 = none, 1000 = highly resonant. Zero-padded."
+    },
+    "main_freq": {
+      "min": 0,
+      "max": 20000,
+      "pad": 5,
+      "description": "Primary resonance frequency in Hz (0\u201320000, pad 5). Zero-padded."
+    },
+    "decay": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Resonance decay time (0\u201310000, pad 5): 0 = instant/no tail, 10000 = long ring. Zero-padded."
+    }
+  },
+  "structure": "RES00450123009876",
+  "description": "RES (prefix), mode count (4 digits), main_freq (5 digits), decay (5 digits); all zero-padded, no subvar prefixes. Example: RES0045012309876 = 0045 modes, 01230 Hz, 09876 ms decay."
+}

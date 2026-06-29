@@ -1,0 +1,76 @@
+1. Modular, One-File-Per-Rule System
+Every analyzed parameter (“rule”) is its own JSON file (e.g., rule_volume.json, rule_envelope.json).
+
+No monolithic schemas. Each file is self-contained: name, prefix, description, structure, subvariables, and all constraints live here.
+
+Agents/processors only read the rule file(s) they need—no unrelated logic loaded.
+
+2. Explicit, Consistent Field Design
+Main variable fields (in every rule file):
+
+"variable": Human-readable name (e.g., "Envelope").
+
+"prefix": 3 first letters of variable, all-caps string for the serialized output (e.g., "ENV").
+
+"subvars": Object containing all subvariables, each fully defined (no ambiguity).
+
+"structure": A real example string showing how the variable is encoded (no templates, no placeholders).
+
+"description": Clear, concise explanation of purpose, transformation, field meanings, and decoding.
+
+Subvariable rules:
+
+Every subvar and subsubvar (never make an explicit "subsubvar" section) gets:
+
+Explicit min, max, and pad for numerals (length of field, for zero-padding).
+
+If value is a class or letter combination (not number), always state class order (e.g., "class": "f-a" or "class": "Z-A", where lowest representation of subvar is Z, with Z always coming first, not alphabetic.).
+
+Descriptions must state real-world meaning, transformation (e.g., what ‘f’ or ‘a’ means), and the reason for padding/length.
+
+No subvar prefixes are ever included in the structure string.
+
+3. Padding and Ranges: Futureproofed, Never Off-By-One
+Numbers are always padded to the next “round” number above their max (Never 9, round to 10, even if not possible to reach 10):
+
+0–10 → pad 2 (00–10)
+
+0–100 → pad 3 (000–100)
+
+0–1000 → pad 4 (0000–1000)
+
+0–10000 → pad 5 (0000–10000)
+
+Never use “max 9/99/999/9999”—always round up and pad.
+
+4. Structure Field: Always a Real Example, Never a Template
+The "structure" key contains a single, real-world serialized example of what the rule’s output string will look like (e.g., "ENVf00025f00120f089f00050").
+
+No brackets, placeholders, special characters or pseudo-code. Just a direct concatenation of real, fully padded subvar values.
+
+No subvar prefixes appear in the serialized string, only the main rule prefix at the start.
+
+5. Order, Concatenation, and Meaning
+Order of fields in the structure exactly matches the order in "subvars" in the JSON.
+
+Subfields (like [curve][time]) are joined in order, always without marker, special character, or separator.
+
+No spaces, dots, dashes, or separators unless they have explicit musical meaning (e.g., period for sustain/hold, which will only be put if the DNA or Output matches the previous window/sequence).
+
+Every value’s meaning and location is 100% fixed, code-parseable, and human-readable with reference to the rule file.
+
+6. Class Order, Custom Not Alphabetic
+Class orders are custom:
+
+Example: "class": "f-a" always means 'a' = fastest, 'f' = slowest, and is always written f-a for your system.
+
+For any non-numeric field (e.g., grains, spectral types), class order is always specified and never assumed alphabetic.
+
+7. Per-Window Data and Storage
+Each 0.25s window of audio/analysis generates one full DNA string per rule (e.g., "ENVf00025f00120f089f00050").
+
+Timing/sustain will be marked by periods. This only happens if the previous window and DNA matches the current, otherwise, data is pure, concatenated string.
+
+Data will be stored as pure binary, schema is futureproofed for millions of blocks.
+
+System is always ready for LLM/agent reading, extension, and scale.

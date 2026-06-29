@@ -1,0 +1,32 @@
+{
+  "variable": "Frequency",
+  "prefix": "FRE",
+  "subvars": {
+    "root": {
+      "band_class": "Z-A",
+      "hz_min": 20,
+      "hz_max": 20000,
+      "hz_pad": 5,
+      "description": "Band letter (Z = lowest, A = highest) followed by five\u2011digit centre\u2011frequency in Hz (00020\u201120000). Example: Z18750."
+    },
+    "micro": {
+      "min": 0,
+      "max": 50,
+      "pad": 3,
+      "sign": "P/N",
+      "description": "Micro\u2011tuning \u00b1\u202f0\u201350\u202fcents. Format: sign (P=up,\u202fN=down) + three\u2011digit value (e.g. P025, N050)."
+    },
+    "fm": {
+      "index_min": 0,
+      "index_max": 1000,
+      "index_pad": 4,
+      "rate_class": "Z-A",
+      "links_min": 0,
+      "links_max": 1000,
+      "links_pad": 4,
+      "description": "FM block: 4\u2011digit depth (0000\u20111000), rate letter (Z = slowest, A = fastest), 4\u2011digit links (0000\u20111000). Example: 0120Z0045."
+    }
+  },
+  "structure": "FREZ18750P0250120Z0045",
+  "description": "Prefix (FRE) + root (band + Hz) + micro (sign + 3) + FM (depth 4 + rate letter + links 4); all concatenated, zero\u2011padded, no subvar prefixes."
+}

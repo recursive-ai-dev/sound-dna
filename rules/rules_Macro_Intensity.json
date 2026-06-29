@@ -1,0 +1,24 @@
+{
+  "variable": "Macro Intensity",
+  "prefix": "MAC",
+  "subvars": {
+    "peak": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Peak RMS intensity (0\u201310000) with 0.01% precision, zero-padded to 5 digits (e.g. 08900 = 89.0%)."
+    },
+    "average": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Average RMS intensity (0\u201310000) with 0.01% precision, zero-padded to 5 digits (e.g. 07200 = 72.0%)."
+    },
+    "trend": {
+      "class_order": "r-f-s",
+      "description": "Trend in intensity over previous 30 s: r = rising, f = falling, s = steady."
+    }
+  },
+  "structure": "MAC0890007200r",
+  "description": "MAC (prefix), peak (5), average (5), trend (1). Example: MAC0890007200r = peak 08900 (89.0%), average 07200 (72.0%), trend = r (rising)."
+}

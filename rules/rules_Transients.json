@@ -1,0 +1,20 @@
+{
+  "variable": "Transients",
+  "prefix": "TRA",
+  "subvars": {
+    "attack_count": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Attack event count (0\u20131000, pad 4): 0 = none, 1000 = ultra-dense. Zero-padded."
+    },
+    "attack_strength": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Attack strength (0\u201310000, pad 5): 0 = soft, 10000 = sharpest. Zero-padded."
+    }
+  },
+  "structure": "TRA012309876",
+  "description": "TRA (prefix), attack count (4 digits), attack strength (5 digits); zero-padded, no subvar prefixes. Example: TRA012309876 = 0123 attacks, 09876 strength."
+}

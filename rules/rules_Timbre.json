@@ -1,0 +1,30 @@
+{
+  "variable": "Timbre",
+  "prefix": "TIM",
+  "subvars": {
+    "centroid": {
+      "min": 20,
+      "max": 20000,
+      "pad": 5,
+      "description": "Spectral centroid in Hz (20\u201320000), zero-padded to 5 digits (e.g. 00250 = 250 Hz, 20000 = 20 kHz)."
+    },
+    "inharm": {
+      "min": 0,
+      "max": 10,
+      "pad": 2,
+      "description": "Inharmonicity bucket, 0 = pure harmonic (most tonal), 10 = fully noisy (least tonal). Always two digits, zero-padded (e.g. 00, 10)."
+    },
+    "texture": {
+      "class_order": "d-a",
+      "description": "Texture mode, single lowercase letter: d = monophonic (most simple), c = biphonic, b = polyphonic, a = homophonic (most complex)."
+    },
+    "blend": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Blend amount as % \u00d7 10, zero-padded to 4 digits (e.g. 0100 = 10.0%, 1000 = 100%)."
+    }
+  },
+  "structure": "TIM0025000a0100",
+  "description": "TIM (prefix), centroid (5), inharm (2), texture (1), blend (4). Example: TIM0025000a0100 (centroid 250 Hz \u2192 00250, inharm \u2192 00, texture \u2192 a, blend 10.0% \u2192 0100)."
+}

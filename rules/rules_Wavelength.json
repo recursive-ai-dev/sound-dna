@@ -1,0 +1,34 @@
+{
+  "variable": "Wavelength",
+  "prefix": "WAV",
+  "subvars": {
+    "type": {
+      "class": "S-N",
+      "description": "Base waveform or noise type: S = pure noise (lowest), Q = quasi-random, P = pulse, U = square, T = triangle, W = sawtooth, H = half-rectified, N = pure sine (highest). Always a single letter, S-N order, S always first as lowest."
+    },
+    "harm": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Harmonic complexity index (0\u201310000, pad 5), overtone richness; 0 = none, 10000 = maximum. Zero-padded."
+    },
+    "sym": {
+      "class": "F-A",
+      "description": "Symmetry: F = fully asymmetric (lowest), A = perfect symmetry (highest). F-A order, single letter."
+    },
+    "mod": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Modulation depth (0\u20131000, pad 4): LFO, PWM, phase/noise modulation. 0 = none, 1000 = max. Zero-padded."
+    },
+    "cycle": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Cycle count (0\u201310000, pad 5): number of repeating base waveform cycles in window. 0 = non-periodic, 10000 = continuous. Zero-padded."
+    }
+  },
+  "structure": "WAVS09876C075600420",
+  "description": "WAV (prefix), type (S-N, 1 letter), harmonic complexity (5 digits), symmetry (F-A, 1 letter), modulation (4 digits), cycles (5 digits); zero-padded, no subvar prefixes. Example: WAVS09876C075600420 = pure noise, 9876 harmonic complexity, symmetry class C (intermediate), modulation depth 756, cycles 00420."
+}

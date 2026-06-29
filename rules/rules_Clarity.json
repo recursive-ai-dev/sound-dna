@@ -1,0 +1,28 @@
+{
+  "variable": "Clarity",
+  "prefix": "CLA",
+  "subvars": {
+    "spectral_flat": {
+      "class": "Z-A",
+      "description": "Spectral\u2011flatness class: Z = ultra\u2011flat (highest clarity)\u2026A = most comb\u2011filtered (lowest). Single capital letter.",
+      "structure": "Z"
+    },
+    "noise_floor": {
+      "min": 0,
+      "max": 120,
+      "pad": 3,
+      "sign": "N",
+      "description": "Noise floor in dBFS, always negative. Encoded as 'N' + three\u2011digit value (e.g. N090 = \u201390\u202fdBFS).",
+      "structure": "N090"
+    },
+    "thd": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Total Harmonic Distortion \u00d7\u202f0.01\u202f%. Four digits (e.g. 0015 =\u202f0.15\u202f% THD).",
+      "structure": "0015"
+    }
+  },
+  "structure": "CLAZN0900015",
+  "description": "Prefix (CLA) + spectral flatness (1) + noise floor (N + 3) + THD (4). Example: CLAZN0900015."
+}

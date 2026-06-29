@@ -1,0 +1,38 @@
+{
+  "variable": "Dynamics",
+  "prefix": "DYN",
+  "subvars": {
+    "window": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Analysis window size in ms, zero-padded to 4 digits (e.g. 0025 = 25 ms)."
+    },
+    "mean": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Mean RMS loudness for the window, zero-padded to 5 digits (e.g. 08130)."
+    },
+    "crest": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Crest factor (peak / RMS), zero-padded to 5 digits (e.g. 06500)."
+    },
+    "lufs": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "LUFS for the window, zero-padded to 5 digits (e.g. 09550)."
+    },
+    "variance": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Short-term loudness variance, zero-padded to 5 digits (e.g. 01200)."
+    }
+  },
+  "structure": "DYN002508130065000955001200",
+  "description": "DYN (prefix), window (4), mean (5), crest (5), LUFS (5), variance (5). Example: DYN002508130065000955001200 = 25 ms window, mean 08130, crest 06500, LUFS 09550, variance 01200."
+}

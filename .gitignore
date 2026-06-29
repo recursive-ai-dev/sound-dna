@@ -1,0 +1,51 @@
+# Ignore Python venvs
+sounddna-venv/
+toongloom-venv/
+venv/
+env/
+*.pyc
+__pycache__/
+.venv/
+
+# Data/model files
+data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+toongloom-venv/
+data/
+dist/
+# Empty __init__.py files
+ui/__init__.py
+utils/__init__.py
+agents/__init__.py
+agents/batch/__init__.py
+agents/postprocessing/__init__.py
+agents/single/__init__.py
+agents/validation/__init__.py
+api/__init__.py
+cli/__init__.py
+containers/migration/__init__.py
+core/__init__.py
+engine/__init__.py
+evaluation/__init__.py
+modules/__init__.py
+plugins/__init__.py
+tests/__init__.py
+build/
+# Logs, placeholders, and docs (if used only for runtime or as temp files)
+prompt
+containers/index.txt
+experiments/exp_001_log.txt
+experiments/exp_002_log.txt
+research/emotion_mappings/deam_notes.txt
+docs/api_reference.md
+docs/change_log.md
+docs/README.md
+docs/rules_guide.md
+docs/vision.md
+docs/design_notes/principles.md
+research/datasets.md
+research/papers.md

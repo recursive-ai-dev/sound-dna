@@ -1,0 +1,26 @@
+{
+  "variable": "Formant Structure",
+  "prefix": "FOR",
+  "subvars": {
+    "formant_count": {
+      "min": 0,
+      "max": 100,
+      "pad": 3,
+      "description": "Number of formants (0\u2013100, pad 3): 0 = none, 100 = extremely complex. Zero-padded."
+    },
+    "f1_freq": {
+      "min": 0,
+      "max": 20000,
+      "pad": 5,
+      "description": "First formant frequency in Hz (0\u201320000, pad 5). Zero-padded."
+    },
+    "bandwidth": {
+      "min": 0,
+      "max": 5000,
+      "pad": 4,
+      "description": "Average formant bandwidth in Hz (0\u20135000, pad 4). Zero-padded."
+    }
+  },
+  "structure": "FOR007018900560",
+  "description": "FOR (prefix), formant_count (3 digits), f1_freq (5 digits), bandwidth (4 digits); zero-padded, no subvar prefixes. Example: FOR007018900560 = formant_count 007, f1_freq 01890, bandwidth 0560."
+}

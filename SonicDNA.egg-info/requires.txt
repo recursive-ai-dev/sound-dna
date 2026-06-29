@@ -1,0 +1,10 @@
+PySide6
+torch
+torchaudio
+numpy
+scipy
+sounddevice
+watchdog
+requests
+librosa
+soundfile

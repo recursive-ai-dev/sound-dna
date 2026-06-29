@@ -1,0 +1,11 @@
+LICENSE
+LICENSE.txt
+README.md
+main.py
+setup.py
+SonicDNA.egg-info/PKG-INFO
+SonicDNA.egg-info/SOURCES.txt
+SonicDNA.egg-info/dependency_links.txt
+SonicDNA.egg-info/entry_points.txt
+SonicDNA.egg-info/requires.txt
+SonicDNA.egg-info/top_level.txt

@@ -1,0 +1,6 @@
+3. Storage, Timing, & Use
+0.25s window = one serialized DNA string (high time resolution)
+
+Periods/spaces in storage = timing/sustain markers
+
+Pure binary or LMDB = massive scale (millions of windows/track is trivial)

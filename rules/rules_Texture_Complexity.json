@@ -1,0 +1,34 @@
+{
+  "variable": "Texture Complexity",
+  "prefix": "TEX",
+  "subvars": {
+    "scarcity": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Scarcity index (0\u201310000, pad 5): 0 = full density (continuous, unbroken texture), 10000 = absolute scarcity (single isolated events or no texture elements). Zero-padded. Used to quantify how 'populated' the waveform is with discrete or overlapping textural elements."
+    },
+    "granularity": {
+      "class": "Z-A",
+      "description": "Granularity class: Z = coarsest (lowest detail, longest events or grain size), A = finest (highest microstructure, rapid fluctuations). Z-A order, single letter, Z always lowest, A highest."
+    },
+    "layering": {
+      "min": 0,
+      "max": 1000,
+      "pad": 4,
+      "description": "Layer count (0\u20131000, pad 4): number of simultaneously present independent textural streams. 0 = monolayer, 1000 = ultra-dense multi-layered. Zero-padded."
+    },
+    "variation": {
+      "min": 0,
+      "max": 10000,
+      "pad": 5,
+      "description": "Internal variation index (0\u201310000, pad 5): 0 = perfectly uniform (identical repetition), 10000 = maximum possible variation (no repetition or pattern). Zero-padded."
+    },
+    "spectral": {
+      "class": "Z-A",
+      "description": "Spectral distribution class: Z = lowest (darkest, lowest frequency energy), A = brightest (highest frequency energy dominates). Z-A order, single letter, Z always first as lowest."
+    }
+  },
+  "structure": "TEX05321D007600137Z",
+  "description": "TEX (prefix), scarcity (5 digits), granularity (Z-A, 1 letter), layering (4 digits), variation (5 digits), spectral (Z-A, 1 letter); all zero-padded, no subvar prefixes. Example: TEX05321D007600137Z = scarcity 5321, granularity D, layering 0076, variation 00137, spectral Z."
+}
