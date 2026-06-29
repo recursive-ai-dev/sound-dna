@@ -35,6 +35,7 @@ class HomePanel(QWidget):
             <li><b>Extraction</b>: Encode existing <code>.wav</code> audio files into standard SonicDNA strings. The app will track the pitch, volume envelope, and timbre of the file and save the resulting frames into your Bank.</li>
             <li><b>Synthesis</b>: The ultimate control station. Paste SonicDNA strings, edit them manually, or use the <i>Novel Generator</i> to randomize completely unique sounds, and hear them instantly synthesized by the Generative Engine.</li>
             <li><b>Bank</b>: A SQLite database that stores your encoded and generated sounds. Keep track of sequences here, export them, or discard them.</li>
+            <li><b>Waveform Generator</b>: An interactive library of basic waveforms and noise types that you can play and export as .wav files.</li>
         </ul>
         <hr>
         <h2>The Core Rules</h2>

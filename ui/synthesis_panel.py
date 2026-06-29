@@ -40,6 +40,8 @@ class SynthesizerThread(QThread):
                 
             audio_out = self.engine.generate_from_sequence(parsed_seq)
             self.finished_signal.emit(audio_out)
+        except json.JSONDecodeError as e:
+            self.error_signal.emit(f"Invalid JSON format. Please ensure you provided a valid JSON array.\nDetails: {e}")
         except Exception as e:
             self.error_signal.emit(str(e))
 
