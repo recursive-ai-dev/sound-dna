@@ -16,6 +16,7 @@ from ui.home_panel import HomePanel
 from ui.extraction_panel import ExtractionPanel
 from ui.synthesis_panel import SynthesisPanel
 from ui.bank_panel import BankPanel
+from ui.music_panel import MusicPanel
 
 logger = logging.getLogger("MainWindow")
 
@@ -50,8 +51,9 @@ class MainWindow(QMainWindow):
         self.btn_extract = QPushButton("Extractor")
         self.btn_synth = QPushButton("Synthesizer")
         self.btn_bank = QPushButton("Sound Bank")
+        self.btn_wave = QPushButton("Waveform Generator")
 
-        self.nav_buttons = [self.btn_home, self.btn_extract, self.btn_synth, self.btn_bank]
+        self.nav_buttons = [self.btn_home, self.btn_extract, self.btn_synth, self.btn_bank, self.btn_wave]
         
         # Style navigation buttons
         for btn in self.nav_buttons:
@@ -94,11 +96,13 @@ class MainWindow(QMainWindow):
         self.extraction_panel = ExtractionPanel()
         self.synthesis_panel = SynthesisPanel()
         self.bank_panel = BankPanel()
+        self.music_panel = MusicPanel()
 
         self.stacked.addWidget(self.home_panel)
         self.stacked.addWidget(self.extraction_panel)
         self.stacked.addWidget(self.synthesis_panel)
         self.stacked.addWidget(self.bank_panel)
+        self.stacked.addWidget(self.music_panel)
 
         self.container_layout.addWidget(self.stacked, 1)
 
@@ -110,6 +114,7 @@ class MainWindow(QMainWindow):
         self.btn_extract.clicked.connect(lambda: self.switch_page(1))
         self.btn_synth.clicked.connect(lambda: self.switch_page(2))
         self.btn_bank.clicked.connect(lambda: self.switch_page(3))
+        self.btn_wave.clicked.connect(lambda: self.switch_page(4))
 
         # Initialize state
         self.switch_page(0)
