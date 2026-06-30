@@ -260,6 +260,8 @@ class DNACalculator:
     """
     def __init__(self, rules_folder: str = 'rules'):
         self.rules: Dict[str, Rule] = {}
+        # [SEVERITY: P1] Fix: Cache sorted prefixes to avoid O(N log N) sorting per parse call
+        self.sorted_prefixes: List[str] = []
         abs_rules_folder = get_resource_path(rules_folder)
         self._load_rules(abs_rules_folder)
 
@@ -279,6 +281,8 @@ class DNACalculator:
                 except Exception as e:
                     logger.warning(f"Failed to load rule {fname}: {e}")
 
+        # [SEVERITY: P1] Fix: Cache the sorted prefixes once after loading all rules
+        self.sorted_prefixes = sorted(self.rules.keys(), key=len, reverse=True)
         logger.info(f"Loaded {len(self.rules)} DNA rules.")
 
     def parse(self, dna_string: str) -> Dict[str, Any]:
@@ -286,8 +290,7 @@ class DNACalculator:
         Identify which rule applies (by prefix), then parse.
         Returns { 'rule': variable_name, 'values': nested_dict }.
         """
-        sorted_prefixes = sorted(self.rules.keys(), key=len, reverse=True)
-        for prefix in sorted_prefixes:
+        for prefix in self.sorted_prefixes:
             if dna_string.startswith(prefix):
                 rule = self.rules[prefix]
                 parsed = rule.parse(dna_string)

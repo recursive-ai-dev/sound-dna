@@ -11,7 +11,7 @@ def test_generation():
     # Test Volume DNA
     dna_vol = "VOL08900750712"
     parsed_vol = calc.parse(dna_vol)
-    audio_vol = engine.generate(parsed_vol)
+    audio_vol = engine.generate_from_sequence([parsed_vol])
     assert len(audio_vol) > 0
     write_wav("test_vol.wav", 44100, (audio_vol * 32767).astype(np.int16))
     print(f"Generated test_vol.wav from {dna_vol}")
@@ -19,7 +19,7 @@ def test_generation():
     # Test Frequency DNA
     dna_fre = "FREZ00440P0000000Z0000"
     parsed_fre = calc.parse(dna_fre)
-    audio_fre = engine.generate(parsed_fre)
+    audio_fre = engine.generate_from_sequence([parsed_fre])
     assert len(audio_fre) > 0
     write_wav("test_fre.wav", 44100, (audio_fre * 32767).astype(np.int16))
     print(f"Generated test_fre.wav from {dna_fre}")

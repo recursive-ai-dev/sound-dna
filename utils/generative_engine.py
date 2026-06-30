@@ -21,7 +21,9 @@ class SynthVoice:
     """
     def __init__(self, sample_rate: int):
         self.sample_rate = sample_rate
-        self.phase = 0.0
+        # [SEVERITY: P1] Fix: Phase must be tracked per harmonic for C0 continuity
+        self.n_harmonics = 10
+        self.phase = np.zeros(self.n_harmonics + 1)
         self.fm_phase = 0.0
         
         # DAW Knobs (State Variables)
@@ -84,8 +86,7 @@ class SynthVoice:
         
         # Carrier (Complex Timbre)
         wave = np.zeros(block_size)
-        n_harmonics = 10
-        for i in range(1, n_harmonics + 1):
+        for i in range(1, self.n_harmonics + 1):
             # Harmonics shifted by inharmonicity
             h_freq = self.freq * i * (1 + i * self.inharm * 0.01)
             
@@ -94,11 +95,11 @@ class SynthVoice:
                 
             # Spectral envelope shaping based on centroid (very simplistic)
             weight = max(0, 1.0 - abs(np.log2(h_freq / max(20, self.centroid))) * 0.3)
-            wave += (weight / i) * np.sin(2 * np.pi * h_freq * t + modulator + self.phase * i)
+            # [SEVERITY: P1] Fix: Use separate phase accumulator for each harmonic
+            wave += (weight / i) * np.sin(2 * np.pi * h_freq * t + modulator + self.phase[i])
+            self.phase[i] += 2 * np.pi * h_freq * (block_size / self.sample_rate)
+            self.phase[i] = self.phase[i] % (2 * np.pi)
             
-        self.phase += 2 * np.pi * self.freq * (block_size / self.sample_rate)
-        self.phase = self.phase % (2 * np.pi)
-        
         # Apply amplitude envelope smoothing in a real synth, but here we step it
         wave = wave * self.amp
         return wave
@@ -135,9 +136,9 @@ class GenerativeEngine:
         # Protect against inf/nan
         audio_out = np.nan_to_num(audio_out, nan=0.0, posinf=1.0, neginf=-1.0)
         
-        # Apply a simple low-pass filter to smooth out block boundaries (zipper noise)
+        # [SEVERITY: P1] Fix: Remove non-causal filtfilt, use lfilter which is causal
         b, a = scipy.signal.butter(1, 0.1)
-        audio_out = scipy.signal.filtfilt(b, a, audio_out)
+        audio_out = scipy.signal.lfilter(b, a, audio_out)
         
         # Normalize to prevent clipping
         max_val = np.max(np.abs(audio_out))
